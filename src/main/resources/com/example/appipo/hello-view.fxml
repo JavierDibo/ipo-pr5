@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="687.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="100.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox>
+                     <children>
+                        <MenuBar centerShape="false" prefWidth="960.0" scaleShape="false">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Menú">
+                              <items>
+                                <MenuItem mnemonicParsing="false" text="Configuración" />
+                                    <MenuItem mnemonicParsing="false" text="Idioma" />
+                                    <MenuItem mnemonicParsing="false" text="Ayuda" />
+                                    <MenuItem mnemonicParsing="false" text="Acerda de..." />
+                              </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Currículum">
+                              <items>
+                                <MenuItem mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                              </items>
+                            </Menu>
+                              <Menu mnemonicParsing="false" text="Candidato">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Etiqueta">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                 </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Foto">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                 </items>
+                              </Menu>
+                          </menus>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </MenuBar>
+                     </children>
+                  </VBox>
+                  <HBox layoutY="26.0" prefHeight="74.0" prefWidth="960.0" style="-fx-background-color: lightgreen;">
+                     <children>
+                        <HBox prefHeight="74.0" prefWidth="360.0">
+                           <children>
+                              <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/logo.png" />
+                                 </image></ImageView>
+                           </children>
+                        </HBox>
+                     </children></HBox>
+               </children>
+            </AnchorPane>
+         </top>
+         <bottom>
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text boundsType="VISUAL" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="© 2023" textAlignment="CENTER" wrappingWidth="45.136722564697266" />
+                  <Text boundsType="VISUAL" layoutX="10.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Privacidad" textAlignment="CENTER" underline="true" wrappingWidth="56.13671875" />
+                  <Text boundsType="VISUAL" layoutX="108.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Seguridad" textAlignment="CENTER" underline="true" wrappingWidth="55.13671875" />
+                  <Text boundsType="VISUAL" layoutX="207.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Términos" textAlignment="CENTER" underline="true" wrappingWidth="50.13670349121094" />
+                  <Text boundsType="VISUAL" layoutX="305.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Contacto" textAlignment="CENTER" underline="true" wrappingWidth="98.13671875" />
+               </children>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin></HBox>
+         </bottom>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/image.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
