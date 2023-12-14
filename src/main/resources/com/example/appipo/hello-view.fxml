@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane prefHeight="687.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="687.0" prefWidth="1024.0" style="-fx-background-color: #fabf9b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="100.0" prefWidth="960.0" BorderPane.alignment="CENTER">
                <children>
@@ -67,9 +67,9 @@
                         </MenuBar>
                      </children>
                   </VBox>
-                  <HBox layoutY="26.0" prefHeight="74.0" prefWidth="960.0" style="-fx-background-color: lightgreen;">
+                  <HBox layoutY="26.0" prefHeight="74.0" prefWidth="960.0">
                      <children>
-                        <HBox prefHeight="74.0" prefWidth="360.0">
+                        <HBox prefHeight="90.0" prefWidth="639.0">
                            <children>
                               <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -77,12 +77,27 @@
                                  </image></ImageView>
                            </children>
                         </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="632.0">
+                           <children>
+                              <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField focusTraversable="false" prefHeight="26.0" prefWidth="165.0" promptText="Buscar...">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </HBox>
                      </children></HBox>
                </children>
             </AnchorPane>
          </top>
          <bottom>
-            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: orange;" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #fabf9b;" BorderPane.alignment="CENTER">
                <children>
                   <Text boundsType="VISUAL" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="© 2023" textAlignment="CENTER" wrappingWidth="45.136722564697266" />
                   <Text boundsType="VISUAL" layoutX="10.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Privacidad" textAlignment="CENTER" underline="true" wrappingWidth="56.13671875" />
@@ -95,15 +110,84 @@
                </BorderPane.margin></HBox>
          </bottom>
          <center>
-            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/image.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <SplitPane dividerPositions="0.36604095563139927" prefHeight="463.0" prefWidth="967.0" style="-fx-background-color: WHITE;">
+                    <items>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <ImageView fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/image.png" />
+                                 </image>
+                              </ImageView>
+                           </content>
+                        </ScrollPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="462.0" prefWidth="438.0" style="-fx-background-color: #5d5d5d;">
+                           <children>
+                              <HBox layoutX="25.0" layoutY="14.0" prefHeight="252.0" prefWidth="598.0" AnchorPane.bottomAnchor="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="252.0" prefWidth="254.0" spacing="20.0">
+                                       <children>
+                                             <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #43984E;" text="ACEPTAR">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font></Button>
+                                          <Button contentDisplay="CENTER" layoutX="65.0" layoutY="95.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: ff2e2e;" text="RECHAZAR">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font></Button>
+                                          <Button contentDisplay="CENTER" layoutX="65.0" layoutY="60.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #FBAB75;" text="POSPONER">
+                                             <font>
+                                                <Font name="System Bold" size="20.0" />
+                                             </font></Button>
+                                       </children>
+                                    </VBox>
+                                    <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" prefHeight="252.0" prefWidth="389.0" text="Etiquetas" textOverrun="WORD_ELLIPSIS">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="397.0">
+                                             <children>
+                                                <TextArea layoutX="29.0" layoutY="-11.0" prefHeight="225.6" prefWidth="398.4" text="Educación universitaria&#10;C++&#10;Python&#10;Sin experiencia laboral&#10;Joven" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextArea>
+                                             </children></AnchorPane>
+                                      </content>
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </TitledPane>
+                                 </children></HBox>
+                              <TitledPane animated="false" collapsible="false" layoutY="252.0" prefHeight="189.0" prefWidth="586.0" text="Comentarios">
+                                <content>
+                                  <AnchorPane layoutX="20.0" layoutY="20.0">
+                                       <children>
+                                          <TextArea layoutX="-14.0" layoutY="-42.0" prefHeight="183.2" prefWidth="564.0" promptText="Escribir..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </TextArea>
+                                       </children></AnchorPane>
+                                </content>
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                 </padding>
+                              </TitledPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </HBox>
          </center>
       </BorderPane>
