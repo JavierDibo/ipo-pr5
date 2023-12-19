@@ -19,7 +19,9 @@ import java.util.ResourceBundle;
 
 public class MainWindowController implements EtiquetaListener {
 
-    private IdiomaController idc;
+    private IdiomaController idiomaController;
+
+    private AnnadirEtiquetaController annadirEtiquetaController;
 
     @FXML
     private Button boton_aceptar;
@@ -192,6 +194,7 @@ public class MainWindowController implements EtiquetaListener {
             Parent root = loader.load();
 
             AnnadirEtiquetaController controller = loader.getController();
+            annadirEtiquetaController = controller;
             controller.setEtiquetaListener(this);
 
             Stage stage = new Stage();
@@ -217,7 +220,7 @@ public class MainWindowController implements EtiquetaListener {
             Parent root = loader.load();
 
             IdiomaController controller = loader.getController();
-            idc = controller;
+            idiomaController = controller;
             controller.setResourceBundle(resourceBundle); // Pasa el ResourceBundle a IdiomaController
             controller.setMainWindowController(this); // Configuraciones adicionales
 
@@ -235,9 +238,14 @@ public class MainWindowController implements EtiquetaListener {
         resourceBundle = ResourceBundle.getBundle("com.example.appipo.resources.mensajes", locale);
         cargar_textos();
 
-        if (idc != null) {
-            idc.setResourceBundle(resourceBundle);
-            idc.actualizarTextos();
+        if (idiomaController != null) {
+            idiomaController.setResourceBundle(resourceBundle);
+            idiomaController.actualizarTextos();
+        }
+
+        if (annadirEtiquetaController != null) {
+            annadirEtiquetaController.setResourceBundle(resourceBundle);
+            annadirEtiquetaController.actualizarTextos();
         }
     }
 

@@ -9,10 +9,10 @@
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
 
-    <Label text="Introduce una nueva etiqueta:" />
+    <Label fx:id="texto_label" text="Introduce una nueva etiqueta:" />
     <TextField fx:id="textFieldNuevaEtiqueta" alignment="CENTER" prefHeight="26.0" prefWidth="288.0">
       <VBox.margin>
          <Insets left="40.0" right="40.0" />
       </VBox.margin></TextField>
-    <Button onAction="#handleAddLabel" text="Añadir" />
+    <Button fx:id="boton_annadir" onAction="#handleAddLabel" text="Añadir" />
 </VBox>
