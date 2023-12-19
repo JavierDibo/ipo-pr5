@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 
 public class MainWindowController implements EtiquetaListener {
 
+    private IdiomaController idc;
+
     @FXML
     private Button boton_aceptar;
     @FXML
@@ -215,6 +217,7 @@ public class MainWindowController implements EtiquetaListener {
             Parent root = loader.load();
 
             IdiomaController controller = loader.getController();
+            idc = controller;
             controller.setResourceBundle(resourceBundle); // Pasa el ResourceBundle a IdiomaController
             controller.setMainWindowController(this); // Configuraciones adicionales
 
@@ -229,10 +232,15 @@ public class MainWindowController implements EtiquetaListener {
 
     void establecer_idioma(String languageCode) {
         Locale locale = new Locale(languageCode);
-
         resourceBundle = ResourceBundle.getBundle("com.example.appipo.resources.mensajes", locale);
         cargar_textos();
+
+        if (idc != null) {
+            idc.setResourceBundle(resourceBundle);
+            idc.actualizarTextos();
+        }
     }
+
 
     private void cargar_textos() {
         // Menus Principales y Submenus

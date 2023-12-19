@@ -26,7 +26,7 @@ public class IdiomaController {
 
     @FXML
     public void initialize() {
-        choice_box_idioma.getItems().addAll("Español", "Inglés");
+        choice_box_idioma.getItems().addAll("Español", "English");
         choice_box_idioma.setValue("Español");
 
         actualizarTextos();
@@ -40,17 +40,23 @@ public class IdiomaController {
 
     private void cambiarIdioma(String idiomaSeleccionado) {
         String languageCode = "es";
-        if (idiomaSeleccionado.equals("Inglés")) {
+        if (idiomaSeleccionado.equals("English")) {
             languageCode = "en";
         }
         mainWindowController.establecer_idioma(languageCode);
     }
 
-    private void actualizarTextos() {
+
+    public void actualizarTextos() {
         if (resourceBundle != null) {
             texto_idioma.setText(resourceBundle.getString("label.selectLanguage"));
         }
     }
+
+    public void setTextoIdiomaLabel(String text) {
+        texto_idioma.setText(text);
+    }
+
 }
 
 
