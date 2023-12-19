@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="195.0" prefWidth="400.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appipo.IdiomaController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <Label fx:id="texto_idioma" text="Seleccionar idioma:" />
+   <ChoiceBox fx:id="choice_box_idioma" prefWidth="150.0" />
+</VBox>

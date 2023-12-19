@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appipo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appipo.MainWindowController">
    <children>
       <BorderPane prefHeight="687.0" prefWidth="1024.0" style="-fx-background-color: #fabf9b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -28,46 +14,44 @@
                <children>
                   <VBox>
                      <children>
-                        <MenuBar centerShape="false" prefWidth="960.0" scaleShape="false">
+                        <MenuBar fx:id="menu_bar" centerShape="false" prefWidth="960.0" scaleShape="false">
                           <menus>
-                            <Menu mnemonicParsing="false" text="Menú">
+                            <Menu fx:id="menu_menu" mnemonicParsing="false" text="Menú">
                               <items>
-                                <MenuItem mnemonicParsing="false" text="Configuración" />
-                                    <MenuItem mnemonicParsing="false" text="Idioma" />
-                                    <MenuItem mnemonicParsing="false" text="Ayuda" />
-                                    <MenuItem mnemonicParsing="false" text="Acerda de..." />
+                                <MenuItem fx:id="menu_menu_config" mnemonicParsing="false" text="Configuración" />
+                                    <MenuItem fx:id="menu_menu_idioma" mnemonicParsing="false" onAction="#abrir_ventana_idioma" text="Idioma" />
+                                    <MenuItem fx:id="menu_menu_ayuda" mnemonicParsing="false" text="Ayuda" />
+                                    <MenuItem fx:id="menu_menu_acercade" mnemonicParsing="false" text="Acerca de..." />
                               </items>
                             </Menu>
-                            <Menu mnemonicParsing="false" text="Currículum">
+                            <Menu fx:id="menu_curriculum" mnemonicParsing="false" text="Currículum">
                               <items>
-                                <MenuItem mnemonicParsing="false" text="Modificar" />
-                                    <MenuItem mnemonicParsing="false" text="Añadir" />
-                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
-                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                <MenuItem fx:id="menu_curriculum_modificar" mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem fx:id="menu_curriculum_annadir" mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem fx:id="menu_curriculum_eliminar" mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem fx:id="menu_curriculum_visualizar" mnemonicParsing="false" text="Visualizar" />
                               </items>
                             </Menu>
-                              <Menu mnemonicParsing="false" text="Candidato">
+                              <Menu fx:id="menu_candidato" mnemonicParsing="false" text="Candidato">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="Modificar" />
-                                    <MenuItem mnemonicParsing="false" text="Añadir" />
-                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
-                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                    <MenuItem fx:id="menu_candidato_modificar" mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem fx:id="menu_candidato_annadir" mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem fx:id="menu_candidato_eliminar" mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem fx:id="menu_candidato_visualizar" mnemonicParsing="false" text="Visualizar" />
                                  </items>
                               </Menu>
-                              <Menu mnemonicParsing="false" text="Etiqueta">
+                              <Menu fx:id="menu_etiqueta" mnemonicParsing="false" text="Etiqueta">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="Modificar" />
-                                    <MenuItem mnemonicParsing="false" text="Añadir" />
-                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
-                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                    <MenuItem fx:id="menu_etiqueta_annadir" mnemonicParsing="false" onAction="#pulsar_menu_etiquetas_annadir" text="Añadir" />
+                                    <MenuItem fx:id="menu_etiqueta_eliminar" mnemonicParsing="false" onAction="#pulsar_menu_etiquetas_eliminar" text="Eliminar" />
                                  </items>
                               </Menu>
-                              <Menu mnemonicParsing="false" text="Foto">
+                              <Menu fx:id="menu_foto" mnemonicParsing="false" text="Foto">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="Modificar" />
-                                    <MenuItem mnemonicParsing="false" text="Añadir" />
-                                    <MenuItem mnemonicParsing="false" text="Eliminar" />
-                                    <MenuItem mnemonicParsing="false" text="Visualizar" />
+                                    <MenuItem fx:id="menu_foto_modificar" mnemonicParsing="false" text="Modificar" />
+                                    <MenuItem fx:id="menu_foto_annadir" mnemonicParsing="false" text="Añadir" />
+                                    <MenuItem fx:id="menu_foto_eliminar" mnemonicParsing="false" text="Eliminar" />
+                                    <MenuItem fx:id="menu_foto_visualizar" mnemonicParsing="false" text="Visualizar" />
                                  </items>
                               </Menu>
                           </menus>
@@ -83,19 +67,30 @@
                   </VBox>
                   <HBox layoutY="26.0" prefHeight="74.0" prefWidth="960.0">
                      <children>
-                        <HBox prefHeight="90.0" prefWidth="639.0">
+                        <HBox alignment="CENTER" prefHeight="90.0" prefWidth="639.0" spacing="20.0">
                            <children>
                               <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/logo.png" />
+                                    <Image url="@resources/logo_2.png" />
                                  </image></ImageView>
+                              <ImageView fitHeight="172.0" fitWidth="413.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/nombre_logo.png" />
+                                 </image>
+                              </ImageView>
                            </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="632.0">
                            <children>
                               <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <TextField focusTraversable="false" prefHeight="26.0" prefWidth="165.0" promptText="Buscar...">
+                                    <TextField fx:id="campoBusqueda" focusTraversable="false" prefHeight="26.0" prefWidth="165.0" promptText="Buscar...">
                                        <font>
                                           <Font size="15.0" />
                                        </font></TextField>
@@ -113,11 +108,11 @@
          <bottom>
             <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #fabf9b;" BorderPane.alignment="CENTER">
                <children>
-                  <Text boundsType="VISUAL" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="© 2023" textAlignment="CENTER" wrappingWidth="45.136722564697266" />
-                  <Text boundsType="VISUAL" layoutX="10.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Privacidad" textAlignment="CENTER" underline="true" wrappingWidth="56.13671875" />
-                  <Text boundsType="VISUAL" layoutX="108.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Seguridad" textAlignment="CENTER" underline="true" wrappingWidth="55.13671875" />
-                  <Text boundsType="VISUAL" layoutX="207.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Términos" textAlignment="CENTER" underline="true" wrappingWidth="50.13670349121094" />
-                  <Text boundsType="VISUAL" layoutX="305.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Contacto" textAlignment="CENTER" underline="true" wrappingWidth="98.13671875" />
+                  <Text fx:id="textoCopyRight" boundsType="VISUAL" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="© 2023" textAlignment="CENTER" wrappingWidth="45.136722564697266" />
+                  <Text fx:id="textoPrivacidad" boundsType="VISUAL" layoutX="10.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Privacidad" textAlignment="CENTER" underline="true" wrappingWidth="56.13671875" />
+                  <Text fx:id="textoSeguridad" boundsType="VISUAL" layoutX="108.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Seguridad" textAlignment="CENTER" underline="true" wrappingWidth="55.13671875" />
+                  <Text fx:id="textoTerminos" boundsType="VISUAL" layoutX="207.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Términos" textAlignment="CENTER" underline="true" wrappingWidth="50.13670349121094" />
+                  <Text fx:id="textoContacto" boundsType="VISUAL" layoutX="305.0" layoutY="45.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Contacto" textAlignment="CENTER" underline="true" wrappingWidth="98.13671875" />
                </children>
                <BorderPane.margin>
                   <Insets left="20.0" />
@@ -130,9 +125,9 @@
                     <items>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0">
                            <content>
-                              <ImageView fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="cv2" fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@resources/image.png" />
+                                    <Image url="@resources/cv1.png" />
                                  </image>
                               </ImageView>
                            </content>
@@ -143,25 +138,25 @@
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="252.0" prefWidth="254.0" spacing="20.0">
                                        <children>
-                                             <Button fx:id="boton_aceptar" contentDisplay="CENTER" mnemonicParsing="false" onAction="#print_sout" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #43984E;" text="ACEPTAR">
+                                             <Button fx:id="boton_aceptar" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pulsar_boton_aceptar" prefHeight="51.0" prefWidth="181.0" styleClass="boton_aceptar" stylesheets="@resources/style.css" text="ACEPTAR" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font></Button>
-                                          <Button contentDisplay="CENTER" layoutX="65.0" layoutY="95.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: ff2e2e;" text="RECHAZAR">
+                                          <Button fx:id="boton_rechazar" contentDisplay="CENTER" layoutX="65.0" layoutY="95.0" mnemonicParsing="false" onAction="#pulsar_boton_rechazar" prefHeight="51.0" prefWidth="181.0" styleClass="boton_rechazar" stylesheets="@resources/style.css" text="RECHAZAR" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font></Button>
-                                          <Button contentDisplay="CENTER" layoutX="65.0" layoutY="60.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="181.0" style="-fx-background-color: #FBAB75;" text="POSPONER">
+                                          <Button fx:id="boton_posponer" contentDisplay="CENTER" layoutX="65.0" layoutY="60.0" mnemonicParsing="false" onAction="#pulsar_boton_posponer" prefHeight="51.0" prefWidth="181.0" styleClass="boton_posponer" stylesheets="@resources/style.css" text="POSPONER" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font></Button>
                                        </children>
                                     </VBox>
-                                    <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" prefHeight="252.0" prefWidth="389.0" text="Etiquetas" textOverrun="WORD_ELLIPSIS">
+                                    <TitledPane fx:id="titledPaneEtiquetas" alignment="TOP_LEFT" animated="false" collapsible="false" prefHeight="252.0" prefWidth="389.0" text="Etiquetas" textOverrun="WORD_ELLIPSIS">
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="397.0">
                                              <children>
-                                                <TextArea layoutX="29.0" layoutY="-11.0" prefHeight="225.6" prefWidth="398.4" text="Educación universitaria&#10;C++&#10;Python&#10;Sin experiencia laboral&#10;Joven" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <TextArea fx:id="text_area_etiquetas" layoutX="29.0" layoutY="-11.0" prefHeight="225.6" prefWidth="398.4" text="Educación universitaria&#10;C++&#10;Python&#10;Sin experiencia laboral&#10;Joven" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
@@ -176,7 +171,7 @@
                                        </padding>
                                     </TitledPane>
                                  </children></HBox>
-                              <TitledPane animated="false" collapsible="false" layoutY="252.0" prefHeight="189.0" prefWidth="586.0" text="Comentarios">
+                              <TitledPane fx:id="titledPaneComentarios" animated="false" collapsible="false" layoutY="252.0" prefHeight="189.0" prefWidth="586.0" text="Comentarios">
                                 <content>
                                   <AnchorPane layoutX="20.0" layoutY="20.0">
                                        <children>
@@ -191,7 +186,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                                  <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                                    <Insets bottom="10.0" left="10.0" right="5.0" />
                                  </padding>
                               </TitledPane>
                            </children>
