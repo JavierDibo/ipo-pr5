@@ -40,7 +40,8 @@ public class IdiomaController {
     }
 
     private List<String> obtenerIdiomasDisponibles() {
-        File carpetaIdiomas = new File("C:\\Users\\Administrator\\IdeaProjects\\app-ipo\\src\\main\\resources\\com\\example\\appipo\\resources");
+        String rutaRelativa = "src/main/resources/com/example/appipo/resources";
+        File carpetaIdiomas = new File(rutaRelativa);
         File[] archivos = carpetaIdiomas.listFiles();
         List<String> idiomas = new ArrayList<>();
         Pattern patron = Pattern.compile("mensajes_(\\w+)\\.properties");
