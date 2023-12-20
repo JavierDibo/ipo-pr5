@@ -12,6 +12,9 @@ public class AnnadirEtiquetaController {
     @FXML
     private TextField textFieldNuevaEtiqueta;
     private EtiquetaListener listener;
+
+    private MainWindowController mainWindowController;
+
     @FXML
     private Label texto_label;
     @FXML
@@ -19,19 +22,19 @@ public class AnnadirEtiquetaController {
 
     private ResourceBundle resourceBundle;
 
+    public void setMainWindowController(MainWindowController controller) {
+        this.mainWindowController = controller;
+        resourceBundle = mainWindowController.getResourceBundle();
+    }
+
     public void setEtiquetaListener(EtiquetaListener listener) {
         this.listener = listener;
     }
 
-    public void setResourceBundle(ResourceBundle resourceBundle) {
-        this.resourceBundle = resourceBundle;
-    }
-
     public void actualizarTextos() {
-        if (resourceBundle != null) {
-            texto_label.setText(resourceBundle.getString("label.addTag"));
-            boton_annadir.setText(resourceBundle.getString("label.buttonTag"));
-        }
+        resourceBundle = mainWindowController.getResourceBundle();
+        texto_label.setText(resourceBundle.getString("label.addTag"));
+        boton_annadir.setText(resourceBundle.getString("label.buttonTag"));
     }
 
     @FXML

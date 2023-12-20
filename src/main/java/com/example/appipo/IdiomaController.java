@@ -18,15 +18,8 @@ public class IdiomaController {
 
     public void setMainWindowController(MainWindowController controller) {
         this.mainWindowController = controller;
-    }
-
-    public void setResourceBundle(ResourceBundle resourceBundle) {
-        this.resourceBundle = resourceBundle;
-    }
-
-    @FXML
-    public void initialize() {
-        choice_box_idioma.getItems().addAll("Español", "English");
+        resourceBundle = mainWindowController.getResourceBundle();
+        choice_box_idioma.getItems().addAll("Español", "English", "Français");
         choice_box_idioma.setValue("Español");
 
         actualizarTextos();
@@ -38,19 +31,27 @@ public class IdiomaController {
         });
     }
 
+    @FXML
+    public void initialize() {
+
+    }
+
     private void cambiarIdioma(String idiomaSeleccionado) {
         String languageCode = "es";
-        if (idiomaSeleccionado.equals("English")) {
-            languageCode = "en";
+
+        switch (idiomaSeleccionado) {
+            case "English" -> languageCode = "en";
+            case "Español" -> languageCode = "es";
+            case "Français" -> languageCode = "fr";
         }
+
         mainWindowController.establecer_idioma(languageCode);
     }
 
 
     public void actualizarTextos() {
-        if (resourceBundle != null) {
-            texto_idioma.setText(resourceBundle.getString("label.selectLanguage"));
-        }
+        resourceBundle = mainWindowController.getResourceBundle();
+        texto_idioma.setText(resourceBundle.getString("label.selectLanguage"));
     }
 
     public void setTextoIdiomaLabel(String text) {

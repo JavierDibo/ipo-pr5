@@ -175,7 +175,7 @@
                                 <content>
                                   <AnchorPane layoutX="20.0" layoutY="20.0">
                                        <children>
-                                          <TextArea layoutX="-14.0" layoutY="-42.0" prefHeight="183.2" prefWidth="564.0" promptText="Escribir..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TextArea fx:id="comentariosTextArea" layoutX="-14.0" layoutY="-42.0" prefHeight="183.2" prefWidth="564.0" promptText="Escribir..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>

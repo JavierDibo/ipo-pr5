@@ -3,11 +3,9 @@ package com.example.appipo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,8 +18,17 @@ import java.util.ResourceBundle;
 public class MainWindowController implements EtiquetaListener {
 
     private IdiomaController idiomaController;
+    private Stage idiomaWindow;
+
 
     private AnnadirEtiquetaController annadirEtiquetaController;
+    private Stage annadirEtiquetaWindow;
+
+
+    private ErrorController errorController;
+    private Stage errorWindow;
+
+    protected String language;
 
     @FXML
     private Button boton_aceptar;
@@ -112,6 +119,8 @@ public class MainWindowController implements EtiquetaListener {
     private TitledPane titledPaneComentarios;
     @FXML
     private TextField campoBusqueda;
+    @FXML
+    private TextArea comentariosTextArea;
 
     /// Resoucebundle
     private ResourceBundle resourceBundle;
@@ -122,7 +131,88 @@ public class MainWindowController implements EtiquetaListener {
         boton_rechazar.getStyleClass().addAll("button-hover", "boton_rechazar");
         boton_posponer.getStyleClass().addAll("button-hover", "boton_posponer");
 
-        establecer_idioma("es");
+        String languageCode = "es";
+        Locale locale = new Locale(languageCode);
+        language = languageCode;
+        resourceBundle = ResourceBundle.getBundle("com.example.appipo.resources.mensajes", locale);
+
+        cargarVentanaIdioma();
+        cargarVentanaAnnadirEtiqueta();
+        cargarVentanaError();
+
+        cargar_textos();
+    }
+
+    private void cargarVentanaIdioma() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/appipo/idioma_window.fxml"));
+            loader.setResources(resourceBundle);
+            Parent root = loader.load();
+
+            idiomaController = loader.getController();
+            idiomaController.setMainWindowController(this);
+
+            idiomaWindow = new Stage();
+            idiomaWindow.setTitle(resourceBundle.getString("menu.language"));
+            idiomaWindow.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void abrir_ventana_idioma() {
+        if (idiomaWindow != null) {
+            idiomaWindow.showAndWait();
+        }
+    }
+
+    private void cargarVentanaAnnadirEtiqueta() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/appipo/annadir_etiqueta_window.fxml"));
+            Parent root = loader.load();
+
+            annadirEtiquetaController = loader.getController();
+            annadirEtiquetaController.setEtiquetaListener(this);
+            annadirEtiquetaController.setMainWindowController(this);
+
+            annadirEtiquetaWindow = new Stage();
+            annadirEtiquetaWindow.setTitle("Añadir Etiqueta");
+            annadirEtiquetaWindow.setScene(new Scene(root));
+            annadirEtiquetaWindow.setResizable(false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void pulsar_menu_etiquetas_annadir() {
+        if (annadirEtiquetaWindow != null) {
+            annadirEtiquetaWindow.showAndWait();
+        }
+    }
+
+    private void cargarVentanaError() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/appipo/error_window.fxml"));
+            Parent root = loader.load();
+
+            errorController = loader.getController();
+            errorController.setMainWindowController(this);
+
+            errorWindow = new Stage();
+            errorWindow.initModality(Modality.APPLICATION_MODAL);
+            errorWindow.setTitle("Mensaje de Error");
+            errorWindow.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void abrir_ventana_error() {
+        if (errorWindow != null) {
+            errorWindow.showAndWait();
+        }
     }
 
     @FXML
@@ -141,29 +231,25 @@ public class MainWindowController implements EtiquetaListener {
         abrir_ventana_error();
     }
 
-    private void abrir_ventana_error() {
-        // Crear una nueva ventana (Stage)
-        Stage ventanaError = new Stage();
-        ventanaError.initModality(Modality.APPLICATION_MODAL); // Hace que la ventana sea modal
-        ventanaError.setTitle("Mensaje de Error");
+    /*private void abrir_ventana_error() {
+        try {
+            // Cargar la vista FXML para la ventana de error
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/appipo/error_window.fxml"));
+            Parent root = loader.load();
 
-        // Crear un mensaje de error
-        Label mensajeError = new Label("Ha ocurrido un error.");
+            errorController = loader.getController();
 
-        // Crear un botón para cerrar la ventana
-        Button botonAceptar = new Button("Aceptar");
-        botonAceptar.setOnAction(e -> ventanaError.close());
+            // Crear y configurar el Stage para la ventana de error
+            Stage ventanaError = new Stage();
+            ventanaError.initModality(Modality.APPLICATION_MODAL); // Hace que la ventana sea modal
+            ventanaError.setTitle("Mensaje de Error"); // Puedes usar un recurso localizado aquí también
+            ventanaError.setScene(new Scene(root));
+            ventanaError.showAndWait(); // Muestra la ventana y espera a que se cierre antes de volver a la ventana principal
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }*/
 
-        // Crear un layout y añadir el mensaje y el botón
-        VBox layout = new VBox(10);
-        layout.getChildren().addAll(mensajeError, botonAceptar);
-        layout.setAlignment(Pos.CENTER);
-
-        // Configurar y mostrar la ventana
-        Scene escena = new Scene(layout, 300, 150);
-        ventanaError.setScene(escena);
-        ventanaError.showAndWait(); // Muestra la ventana y espera a que se cierre antes de volver a la ventana principal
-    }
 
     @FXML
     void pulsar_menu_etiquetas_eliminar() {
@@ -188,7 +274,7 @@ public class MainWindowController implements EtiquetaListener {
     }
 
     @FXML
-    private void pulsar_menu_etiquetas_annadir() {
+    /*private void pulsar_menu_etiquetas_annadir() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/appipo/annadir_etiqueta_window.fxml"));
             Parent root = loader.load();
@@ -205,7 +291,7 @@ public class MainWindowController implements EtiquetaListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
     public void onNuevaEtiqueta(String etiqueta) {
@@ -213,7 +299,7 @@ public class MainWindowController implements EtiquetaListener {
     }
 
     @FXML
-    private void abrir_ventana_idioma() {
+    /*private void abrir_ventana_idioma() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/appipo/idioma_window.fxml"));
             loader.setResources(resourceBundle); // Establecer el ResourceBundle
@@ -231,26 +317,26 @@ public class MainWindowController implements EtiquetaListener {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     void establecer_idioma(String languageCode) {
         Locale locale = new Locale(languageCode);
+        language = languageCode;
         resourceBundle = ResourceBundle.getBundle("com.example.appipo.resources.mensajes", locale);
         cargar_textos();
-
-        if (idiomaController != null) {
-            idiomaController.setResourceBundle(resourceBundle);
-            idiomaController.actualizarTextos();
-        }
-
-        if (annadirEtiquetaController != null) {
-            annadirEtiquetaController.setResourceBundle(resourceBundle);
-            annadirEtiquetaController.actualizarTextos();
-        }
     }
 
+    public String getLanguage() {
+        return language;
+    }
 
     private void cargar_textos() {
+
+        // Titulos
+        idiomaWindow.setTitle(resourceBundle.getString("menu.language"));
+        annadirEtiquetaWindow.setTitle(resourceBundle.getString("menu.language"));
+        errorWindow.setTitle(resourceBundle.getString("menu.language"));
+
         // Menus Principales y Submenus
         menu_menu_config.setText(resourceBundle.getString("menu.configuration"));
         menu_menu_idioma.setText(resourceBundle.getString("menu.language"));
@@ -293,7 +379,11 @@ public class MainWindowController implements EtiquetaListener {
         textoTerminos.setText(resourceBundle.getString("text.terms"));
         textoContacto.setText(resourceBundle.getString("text.contact"));
         textoCopyRight.setText(resourceBundle.getString("text.copyRight"));
+        comentariosTextArea.setText(resourceBundle.getString("textArea.comments"));
 
+        idiomaController.actualizarTextos();
+        annadirEtiquetaController.actualizarTextos();
+        errorController.actualizarTextos();
     }
 
     public TextArea get_text_area_etiquetas() {
