@@ -154,6 +154,7 @@ public class MainWindowController implements EtiquetaListener {
 
             idiomaWindow = new Stage();
             idiomaWindow.setTitle(resourceBundle.getString("menu.language"));
+            idiomaWindow.setResizable(false);
             idiomaWindow.setScene(new Scene(root));
         } catch (IOException e) {
             e.printStackTrace();
@@ -201,7 +202,8 @@ public class MainWindowController implements EtiquetaListener {
             errorController.setMainWindowController(this);
 
             errorWindow = new Stage();
-            errorWindow.initModality(Modality.APPLICATION_MODAL);
+            errorWindow.setResizable(false);
+            errorWindow.initModality(Modality.NONE);
             errorWindow.setTitle("Mensaje de Error");
             errorWindow.setScene(new Scene(root));
         } catch (IOException e) {
@@ -333,9 +335,9 @@ public class MainWindowController implements EtiquetaListener {
     private void cargar_textos() {
 
         // Titulos
-        idiomaWindow.setTitle(resourceBundle.getString("menu.language"));
-        annadirEtiquetaWindow.setTitle(resourceBundle.getString("menu.language"));
-        errorWindow.setTitle(resourceBundle.getString("menu.language"));
+        idiomaWindow.setTitle(resourceBundle.getString("text.languageTitle"));
+        errorWindow.setTitle(resourceBundle.getString("text.errorTitle"));
+        annadirEtiquetaWindow.setTitle(resourceBundle.getString("text.tagsTitle"));
 
         // Menus Principales y Submenus
         menu_menu_config.setText(resourceBundle.getString("menu.configuration"));

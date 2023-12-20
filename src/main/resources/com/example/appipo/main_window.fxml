@@ -156,7 +156,7 @@
                                       <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="226.0" prefWidth="397.0">
                                              <children>
-                                                <TextArea fx:id="text_area_etiquetas" layoutX="29.0" layoutY="-11.0" prefHeight="225.6" prefWidth="398.4" text="Educación universitaria&#10;C++&#10;Python&#10;Sin experiencia laboral&#10;Joven" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <TextArea fx:id="text_area_etiquetas" layoutX="29.0" layoutY="-11.0" prefHeight="225.6" prefWidth="398.4" text="Educación universitaria&#10;C++&#10;Python&#10;Sin experiencia laboral&#10;Joven&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <font>
                                                       <Font size="15.0" />
                                                    </font>
