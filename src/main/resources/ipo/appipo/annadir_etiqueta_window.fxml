@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="195.0" prefWidth="400.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ipo.appipo.AnnadirEtiquetaController">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+
+    <Label fx:id="texto_label" text="Introduce una nueva etiqueta:" />
+    <TextField fx:id="textFieldNuevaEtiqueta" alignment="CENTER" prefHeight="26.0" prefWidth="288.0">
+      <VBox.margin>
+         <Insets left="40.0" right="40.0" />
+      </VBox.margin></TextField>
+    <Button fx:id="boton_annadir" onAction="#handleAddLabel" text="Añadir" />
+</VBox>

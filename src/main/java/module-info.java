@@ -5,6 +5,6 @@ module com.example.appipo {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.appipo to javafx.fxml;
-    exports com.example.appipo;
+    opens ipo.appipo to javafx.fxml;
+    exports ipo.appipo;
 }
